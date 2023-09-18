@@ -3,16 +3,16 @@
 /**
  * main - Entry point
  *
- * Description: prints all single digits of base 10
+ * Description: Prints single digit numbers base 10
  * Return: 0 (Success)
  */
 int main(void)
 {
-	int i = 0;
+	int i = 48;
 
-	while (i < 10)
+	while (i < 58)
 	{
-		printf("%d", i);
+		putchar(i);
 		i++;
 	}
 	putchar('\n');
