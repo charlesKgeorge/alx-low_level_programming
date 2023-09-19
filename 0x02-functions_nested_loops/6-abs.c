@@ -10,7 +10,7 @@ int _abs(int n)
 {
 	int a;
 
-	if (n => 0)
+	if (n >= 0)
 	{
 		a = n;
 	}
