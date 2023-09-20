@@ -17,4 +17,6 @@ int main(void)
 		printf("%d, ", b);
 	}
 	printf("%d\n", a + b);
+
+	return (0);
 }
