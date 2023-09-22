@@ -14,7 +14,15 @@
  */
 void split_num(long int y, long int *a, long int *b, int digits)
 {
-	long int x = pow(10, digits);
+	long int x = 1;
+	int i = 0;
+
+
+	while (i < digits)
+	{
+		x *= 10;
+		i++;
+	}
 
 	*a = y / x;
 	*b = y % x;
@@ -33,7 +41,14 @@ void split_num(long int y, long int *a, long int *b, int digits)
  **/
 void carrying(long int *sum, long int *a, int digits)
 {
-	long int x = pow(10, digits);
+	long int x = 1;
+	int i = 0;
+
+	while (i < digits)
+	{
+		x *= 10;
+		i++;
+	}
 
 	if (*sum > x - 1)
 	{
@@ -52,10 +67,17 @@ void carrying(long int *sum, long int *a, int digits)
  */
 void borrowing(long int *diff, long int *a, int digits)
 {
+	long int x = 1;
+	int i = 0;
+
+	while (i < digits)
+	{
+		x *= 10;
+		i++;
+	}
+
 	if (*diff < 0)
 	{
-		long int x = pow(10, digits);
-
 		*diff += x;
 		*a += 1;
 	}
