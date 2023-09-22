@@ -1,66 +1,96 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
- * Description: Prints first 50 numbers of Fibonacci sequence
- * Return: 0(Success)
- */
+ *  * main - Entry point
+ *   *
+ *    * Description: Prints first 50 numbers of Fibonacci sequence
+ *     * Return: 0(Success)
+ *      */
 int main(void)
 {
 	int i = 0;
-	unsigned long long int a = 0, b = 1;
-	unsigned long int a1, a2, b1, b2, c1, c2;
-
-	for (; i < 97; i++)
+	long int a = 0, b = 1, x = 1000000000, y = 1000000;
+	long int a1, a11, a12, a2, b1, b11, b12, b2;
+	for (; i < 45; i++)
 	{
-		if (a < 10000000000)
+		b += a;
+		a = b - a;
+		printf("%lu, ", b);
+	}
+
+    	a1 = a / x;
+	a2 = a % x;
+	b1 = b / x;
+	b2 = b % x;
+
+	for (; i < 88; i++)
+	{
+		b2 += a2;
+		if (b2 > x - 1)
 		{
-			b += a;
-			a = b - a;
-			printf("%llu, ", b);
+			b1 += b2 / x;
+			b2 %= x; 
+		}
+		b1 += a1;
+
+	
+		a2 = b2 - a2;
+		if (a2 < 0)
+		{
+			a2 += x;
+			a1 = b1 - 1 - a1;
 		}
 		else
 		{
-			a1 = a / 10000000000;
-			a2 = a % 10000000000;
-			b1 = b / 10000000000;
-			b2 = b % 10000000000;
-
-			b2 += a2;
-			if (b2 > 9999999999)
-			{
-				b1 += b2 / 10000000000;
-				b2 %= 10000000000;
-			}
-			b1 += a1;
-
-			a2 = b2 - a2;
-			if (a2 < 0)
-			{
-				a2 += 10000000000;
-				b1 -= 1;
-				a1 = b1 - a1;
-				b1 += 1;
-			}
-			else
-			{
-				a1 = b1 - a1;
-			}
-			printf("%lu%lu, ", b1, b2);
+			a1 = b1 - a1;
 		}
+		printf("%lu%09lu, ", b1, b2);
 	}
-	c2 = a2 + b2;
-	if (c2 > 10000000000)
+
+	a11 = a1 / y;
+	a12 = a1 % y;
+	b11 = b1 / y;
+	b12 = b1 % y;
+
+	for (; i < 98; i++)
 	{
-		c2 %= 10000000000;
-		c1 = 1 + a1 + b1;
+		b2 += a2;
+		if (b2 > x - 1)
+		{
+			b12 += b2 / x;
+			b2 %= x; 
+		}
+		b12 += a12;
+		if (b12 > y - 1)
+		{
+			b11 += b12 / y;
+			b12 %= y; 
+		}
+		b11 += a11;
+
+		a2 = b2 - a2;
+		if (a2 < 0)
+		{
+			a2 += x;
+			a12 = b12 - 1 - a12;
+		}
+		else
+		{
+			a12 = b12 - a12;
+		}
+		if (a12 < 0)
+		{
+			a12 += y;
+			a11 = b11 - 1 - a11;
+		}
+		else
+		{
+			a11 = b11 - a11;
+		}
+		printf("%lu%06lu%09lu", b11, b12, b2);
+		(i != 97) ? printf(", ") : printf("\n");
+
 	}
-	else
-	{
-		c1 = a1 + b1;
-	}
-	printf("%lu%lu\n", c1, c2);
 
 	return (0);
 }
