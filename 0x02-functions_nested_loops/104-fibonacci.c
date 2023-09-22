@@ -1,16 +1,77 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
- *  * main - Entry point
- *   *
- *    * Description: Prints first 50 numbers of Fibonacci sequence
- *     * Return: 0(Success)
- *      */
+ * split_num - Splits numbers
+ * @y: The value to be split
+ * @a: half1
+ * @b: half2
+ * @digits: amount of numbers in a half grouped starting from far right
+ *
+ * Description: splits larger values into two parts to allow storage on
+ * unsigned long int without having overlap that messes up the output
+ * Return: No reteurn value
+ */
+void split_num(long int y, long int *a, long int *b, int digits)
+{
+	long int x = pow(10, digits);
+
+	*a = y / x;
+	*b = y % x;
+}
+
+/**
+ * carrying - facilitates adding of a split number
+ * @sum: sum of the values on the right to be determined whether past
+ * the limits and thus worke on if the case
+ * @a: the split section on the left of the sumed one
+ * @digits: limit for number of digits grouping to help set overlap
+ *
+ * Description: If summation of split value on the right exceedes the number
+ * of digits allowed for it this funcion carries the extra towards the left
+ * Return: No return
+ **/
+void carrying(long int *sum, long int *a, int digits)
+{
+	long int x = pow(10, digits);
+
+	if (*sum > x - 1)
+	{
+		*a += *sum / x;
+		*sum %= x;
+	}
+}
+
+/**
+ * borrowing - adds to split on the right from the one on the left
+ * @diff: the difference result
+ * @a: the subtracted in the next value
+ * @digits: sets the amount to be borrowed
+ *
+ * Return: no return value
+ */
+void borrowing(long int *diff, long int *a, int digits)
+{
+	if (*diff < 0)
+	{
+		long int x = pow(10, digits);
+
+		*diff += x;
+		*a += 1;
+	}
+}
+
+/**
+ * main - Entry point
+ *
+ * Description: Prints first 50 numbers of Fibonacci sequence
+ * Return: 0(Success)
+ */
 int main(void)
 {
 	int i = 0;
-	long int a = 0, b = 1, x = 1000000000, y = 1000000;
-	long int a1, a11, a12, a2, b1, b11, b12, b2;
+	long int a = 0, b = 1, a1, a11, a12, a2, b1, b11, b12, b2;
+
 	for (; i < 45; i++)
 	{
 		b += a;
@@ -18,79 +79,34 @@ int main(void)
 		printf("%lu, ", b);
 	}
 
-    	a1 = a / x;
-	a2 = a % x;
-	b1 = b / x;
-	b2 = b % x;
-
+	split_num(a, &a1, &a2, 9);
+	split_num(b, &b1, &b2, 9);
 	for (; i < 88; i++)
 	{
 		b2 += a2;
-		if (b2 > x - 1)
-		{
-			b1 += b2 / x;
-			b2 %= x; 
-		}
+		carrying(&b2, &b1, 9);
 		b1 += a1;
-
-	
 		a2 = b2 - a2;
-		if (a2 < 0)
-		{
-			a2 += x;
-			a1 = b1 - 1 - a1;
-		}
-		else
-		{
-			a1 = b1 - a1;
-		}
+		borrowing(&a2, &a1, 9);
+		a1 = b1 - a1;
 		printf("%lu%09lu, ", b1, b2);
 	}
-
-	a11 = a1 / y;
-	a12 = a1 % y;
-	b11 = b1 / y;
-	b12 = b1 % y;
-
+	split_num(a1, &a11, &a12, 6);
+	split_num(b1, &b11, &b12, 6);
 	for (; i < 98; i++)
 	{
 		b2 += a2;
-		if (b2 > x - 1)
-		{
-			b12 += b2 / x;
-			b2 %= x; 
-		}
+		carrying(&b2, &b12, 9);
 		b12 += a12;
-		if (b12 > y - 1)
-		{
-			b11 += b12 / y;
-			b12 %= y; 
-		}
+		carrying(&b12, &b11, 6);
 		b11 += a11;
-
 		a2 = b2 - a2;
-		if (a2 < 0)
-		{
-			a2 += x;
-			a12 = b12 - 1 - a12;
-		}
-		else
-		{
-			a12 = b12 - a12;
-		}
-		if (a12 < 0)
-		{
-			a12 += y;
-			a11 = b11 - 1 - a11;
-		}
-		else
-		{
-			a11 = b11 - a11;
-		}
+		borrowing(&a2, &a12, 9);
+		a12 = b12 - a12;
+		borrowing(&a12, &a11, 6);
+		a11 = b11 - a11;
 		printf("%lu%06lu%09lu", b11, b12, b2);
 		(i != 97) ? printf(", ") : printf("\n");
-
 	}
-
 	return (0);
 }
