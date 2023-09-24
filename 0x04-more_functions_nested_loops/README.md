@@ -53,3 +53,29 @@ Function that draws a diagonal line on the terminal<ul><li>Prototype: `void prin
 ### 8-print_square.c
 Function that prints a square, followed by a new line<ul><li>Prototype: `void print_square(int size);`</li><li>You can only use `_putchar` function to print</li><li>Where `size` is the size of the square</li><li>If size is 0 or less, the function should print only a new line</li><li>Use the character `#` to print the square</li></ul>
 
+### 9-fizz_buzz.c
+The **“Fizz-Buzz test”** is an interview question designed to help filter out the 99.5% of programming job candidates who can’t seem to program their way out of a wet paper bag.It is a Program that prints the numbers from 1 to 100, followed by a new line. But for multiples of three print Fizz instead of the number and for the multiples of five print Buzz. For numbers which are multiples of both three and five print FizzBuzz
+* Each number or word should be separated by a space
+* You are allowed to use the standard library
+
+### 10-print_triangle.c
+Function that prints a triangle, followed by a new line.
+* Prototype: `void print_triangle(int size);`
+* You can only use _putchar function to print
+* Where size is the size of the triangle
+* If size is 0 or less, the function should print only a new line
+* Use the character # to print the triangle
+
+### 100-prime_factor.c
+Program that finds and prints the largest prime factor of the number 612852475143, followed by a new line.
+* You are allowed to use the standard library
+* Your program will be compiled with this command: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-prime_factor.c -o 100-prime_factor -lm`
+
+### 101-print_number.c
+Function that prints an integer.
+* Prototype: `void print_number(int n);`
+* You can only use _putchar function to print
+* You are not allowed to use `long`
+* You are not allowed to use arrays or pointers
+* You are not allowed to hard-code special values
+
