@@ -18,15 +18,15 @@ Debugging is the process of finding and fixing errors in software that prevents 
 
 # Files
 ## Task 0
-#### 0-main.c #### ===> **Tests out output for the function positive_or_negative() for a value 0**
+** 0-main.c ===> Tests out output for the function positive_or_negative() for a value 0**
 
-#### main.h #### ===> **Header file**
+** main.h #### ===> Header file**
 
 ## Task 1
-#### 1-main.c #### ===> **Avoiding an infinite loop**
+** 1-main.c ===> Avoiding an infinite loop**
 
 ## Task 2
-#### 2-largest_number.c #### ===> **Returns the largest number**
+** 2-largest_number.c ===> Returns the largest number**
 
 ## Task 3
-#### 3-print_remaining_days.c #### ===> **Prints remaining days in an year**
+** 3-print_remaining_days.c ===> Prints remaining days in an year**
