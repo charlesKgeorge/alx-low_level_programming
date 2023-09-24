@@ -40,3 +40,16 @@ Function that prints the numbers, from 0 to 9, followed by a new line<ul><li>Pro
 ### 4-print_most_numbers.c
 Function that prints the numbers, from 0 to 9, followed by a new line<ul><li>Prototype: `void print_most_numbers(void);`</li><li>Do not print **2** and **4**</li><li>You can only use `_putchar` twice in your code</li></ul>
 
+### 5-more_numbers.c
+Function that prints 10 times the numbers, from 0 to 14, followed by a new line<ul><li>
+Prototype: `void more_numbers(void);`</li><li>You can only use `_putchar` three times in your code</li></ul>
+
+### 6-print_line.c
+Function that draws a straight line in the terminal<ul><li>Prototype: `void print_line(int n);`</li><li>You can only use `_putchar` function to print</li><li>Where `n` is the number of times the `_` should be printed</li><li>The line should end with a \n</li><li>If n is 0 or less, the function should only print *\n*</li></ul>
+
+### 7-print_diagonal.c
+Function that draws a diagonal line on the terminal<ul><li>Prototype: `void print_diagonal(int n);`</li><li>You can only use `_putchar` function to print</li><li>Where `n` is the number of times the character *\* should be printed</li><li>The diagonal should end with a \n</li><li>If n is 0 or less, the function should only print a \n</li></ul>
+
+### 8-print_square.c
+Function that prints a square, followed by a new line<ul><li>Prototype: `void print_square(int size);`</li><li>You can only use `_putchar` function to print</li><li>Where `size` is the size of the square</li><li>If size is 0 or less, the function should print only a new line</li><li>Use the character `#` to print the square</li></ul>
+
