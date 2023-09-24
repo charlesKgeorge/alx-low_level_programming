@@ -28,3 +28,15 @@ Header file
 Function that checks for uppercase character
 <ul><li>Prototype: `int _isupper(int c);`</li><li>Returns 1 if c is uppercase</li><li>Returns 0 otherwise</li></ul>
 
+### 1-isdigit.c
+Function that checks for a digit (0 through 9)<ul><li>Prototype: `int _isdigit(int c);`</li><li>Returns 1 if c is a digit</li><li>Returns 0 otherwise</li></ul>
+
+### 2-mul.c
+Function that multiplies two integers<ul><li>Prototype: `int mul(int a, int b);`</li></ul>
+
+### 3-print_numbers.c
+Function that prints the numbers, from 0 to 9, followed by a new line<ul><li>Prototype: `void print_numbers(void);`</li><li>You can only use _putchar twice in your code</li></ul>
+
+### 4-print_most_numbers.c
+Function that prints the numbers, from 0 to 9, followed by a new line<ul><li>Prototype: `void print_most_numbers(void);`</li><li>Do not print **2** and **4**</li><li>You can only use `_putchar` twice in your code</li></ul>
+
