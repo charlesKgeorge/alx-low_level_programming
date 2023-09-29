@@ -1,5 +1,4 @@
 #include "main.h"
-#include <limits.h>
 
 /**
  * print_number - Prints numbers to std output
@@ -13,33 +12,42 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		if (n == INT_MIN)
+		n *= -1;
+		if (n < 0)
 		{
 			n++;
+			n = -n;
 			j = 1;
 		}
-		n *= -1;
 		_putchar('-');
 	}
-	while (n / 10 >= x)
+
+	if (n != 0)
 	{
-		x *= 10;
-	}
-	while (x >= 1)
-	{
-		if (n == 0)
+		while (n / 10 >= x)
 		{
-			_putchar('0');
+			x *= 10;
 		}
-		else
+		while (x >= 1)
 		{
-			if(x == 1)
+			if (n == 0)
 			{
-				n += j;
+				_putchar('0');
 			}
-			_putchar(n / x + '0');
-			n -= (n / x) * x;
+			else
+			{
+				if(x == 1)
+				{
+					n += j;
+				}
+				_putchar(n / x + '0');
+				n -= (n / x) * x;
+			}
+			x /= 10;
 		}
-		x /= 10;
+	}
+	else
+	{
+		_putchar('0');
 	}
 }
