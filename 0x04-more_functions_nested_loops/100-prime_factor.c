@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	long long int A = 612852475143, factor = 1;
+	long int A = 612852475143, factor = 1;
 
 
 	while (A > 1)
@@ -19,7 +19,7 @@ int main(void)
 			A /= factor;
 		}
 	}
-	printf("%llu", factor);
+	printf("%lu\n", factor);
 
 	return (0);
 }
