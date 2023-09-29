@@ -8,46 +8,17 @@
  */
 void print_number(int n)
 {
-	int x = 10, j = 0;
+	unsigned int i = n;
 
 	if (n < 0)
 	{
-		n *= -1;
-		if (n < 0)
-		{
-			n++;
-			n = -n;
-			j = 1;
-		}
+		i *= -1;
 		_putchar('-');
 	}
 
-	if (n != 0)
+	if (i / 10)
 	{
-		while (n / 10 >= x)
-		{
-			x *= 10;
-		}
-		while (x >= 1)
-		{
-			if (n == 0)
-			{
-				_putchar('0');
-			}
-			else
-			{
-				if(x == 1)
-				{
-					n += j;
-				}
-				_putchar(n / x + '0');
-				n -= (n / x) * x;
-			}
-			x /= 10;
-		}
+		print_number(i / 10);
 	}
-	else
-	{
-		_putchar('0');
-	}
+	_putchar(i % 10 + '0');
 }
